@@ -10,23 +10,21 @@
         android:id="@+id/btn_anadir_list_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:text="@string/anadir"
+        android:text="Añadir"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/lv_list_view"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/lv_list_view"
-        app:layout_constraintTop_toBottomOf="@+id/lv_list_view" />
+        app:layout_constraintTop_toBottomOf="@+id/lv_list_view"
+        app:layout_constraintVertical_bias="0.383" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
         android:id="@+id/lv_list_view"
-        android:layout_width="354dp"
-        android:layout_height="338dp"
-        android:contextClickable="false"
+        android:layout_width="343dp"
+        android:layout_height="229dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407" />
-
+        app:layout_constraintVertical_bias="0.151" />
 </androidx.constraintlayout.widget.ConstraintLayout>
