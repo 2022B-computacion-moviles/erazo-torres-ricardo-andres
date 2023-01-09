@@ -66,6 +66,26 @@ class ACicloVida : AppCompatActivity() {
                 || super.onSupportNavigateUp()
     }
 
+    override fun onSaveInstanceState(outState: Bundle){
+        outState.run{
+            //Guardar las variables
+            //Primitivas
+            putString("textoGuardado", textoGlobal)
+            //putInt("numeroGuardado", numero)
+        }
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val textoRecuperado:String? = savedInstanceState.getString("textoGuardado")
+        //val textoRecuperado:Int? = savedInstanceState.getInt("numeroGuardado")
+        if(textoRecuperado!=null){
+            mostrarSnackbar(textoRecuperado)
+            textoGlobal = textoRecuperado
+        }
+    }
+
     fun mostrarSnackbar(texto:String){
         textoGlobal += texto
         Snackbar.make(findViewById(R.id.cl_ciclo_vida),
