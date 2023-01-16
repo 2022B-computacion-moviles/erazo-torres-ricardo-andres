@@ -98,7 +98,10 @@ class BListView : AppCompatActivity() {
 
     fun añadirEntrenador(adaptador:ArrayAdapter<BEntrenador>){
         arreglo.add(
-            BEntrenador("Ejemplo","e@e.com")
+            BEntrenador(
+                1,
+                "Ejemplo",
+                "e@e.com")
         )
         adaptador.notifyDataSetChanged()
     }
