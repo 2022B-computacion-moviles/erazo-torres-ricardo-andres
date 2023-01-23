@@ -1,0 +1,2 @@
+1,Opera,Navegador,20.0,2023-01-21
+2,Teams,Educacion,35.0,2021-01-02
