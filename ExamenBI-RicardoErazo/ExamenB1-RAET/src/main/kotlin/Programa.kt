@@ -67,9 +67,9 @@ public class Programa(
                     "\n"
         try {
             Files.write(directorio, data.toByteArray(), StandardOpenOption.APPEND)
-            println("Programa agregado con éxito!")
+            println("\t---Programa agregado con éxito!---\t")
         } catch (e: IOException) {
-            println("Error al ingresar el elemento")
+            println("\t---Error al ingresar el elemento---\t")
         }
     }
     //compartir objetos
@@ -81,7 +81,7 @@ public class Programa(
             Files.lines(directorio, Charsets.UTF_8).forEach {
                 var arraySalida = it.split(",")
                 println(
-                    "ID programa: " + arraySalida[0] + "\t\n\t"
+                    " * ID programa: " + arraySalida[0] + "\n\t"
                             + "Nombre programa: " + arraySalida[1] + "\n\t"
                             + "Tipo de programa: " + arraySalida[2] + "\n\t"
                             + "Peso requerido: " + arraySalida[3] + "\n\t"
@@ -100,11 +100,11 @@ public class Programa(
                 if (arraySalida[0] == id_programa.toString()) {
                     var actualizar = true
                     println(
-                        "ID programa: " + arraySalida[0] + "\t\n\t"
-                                + "1. Nombre del programa: " + arraySalida[1] + "\n\t"
-                                + "2. Tipo de programa: " + arraySalida[2] + "\n\t"
-                                + "3. Peso requerido: " + arraySalida[3] + "\n\t"
-                                + "4. Fecha de instalación: " + arraySalida[4] + "\n"
+                        "- ID programa: " + arraySalida[0] + "\t\n\t"
+                                + " 1. Nombre del programa: " + arraySalida[1] + "\n\t"
+                                + " 2. Tipo de programa: " + arraySalida[2] + "\n\t"
+                                + " 3. Peso requerido: " + arraySalida[3] + "\n\t"
+                                + " 4. Fecha de instalación: " + arraySalida[4] + "\n"
                     )
                     //Escoger los atributos a ser actualizados
                     var arrayCadena = arrayOf<String>("0", "0", "0", "0")
@@ -144,13 +144,13 @@ public class Programa(
                             }
                         }
                         println(
-                            "ID programa: " + arraySalida[0] + "\t\n\t"
-                                    + "1. Nombre del programa: " + arraySalida[1] + "\n\t"
-                                    + "2. Tipo de programa: " + arraySalida[2] + "\n\t"
-                                    + "3. Peso requerido: " + arraySalida[3] + "\n\t"
-                                    + "4. Fecha de instalación: " + arraySalida[4] + "\n"
+                            " - ID programa: " + arraySalida[0] + "\t\n\t"
+                                    + " 1. Nombre: " + arraySalida[1] + "\n\t"
+                                    + " 2. Tipo: " + arraySalida[2] + "\n\t"
+                                    + " 3. Peso requerido: " + arraySalida[3] + "\n\t"
+                                    + " 4. Fecha de instalación: " + arraySalida[4] + "\n"
                         )
-                        println("¿Seguir actualizando? \n 1. Si \n 2. No \n")
+                        print("\t---¿Seguir actualizando?---\t \n \t1. Si \n \t2. No \nElección: ")
                         var auxOpcion = readln().toInt()
                         if (auxOpcion == 2) {
                             actualizar = false //Terminar la actualización del elemento
@@ -174,13 +174,13 @@ public class Programa(
                 }
             }
             if (!bandera) {
-                println("El programa no existe")
+                println("\t---El programa no existe---\t")
             } else {
                 File("src/main/resources/programas.txt").printWriter().use {
                         out -> out.print(archivoActualizado)
                 }
             }
-            println("Programa actualizado")
+            println("\t---Programa actualizado---\t")
         }
         //función para eliminar (DELETE) al programa dentro del archivo
         fun eliminarPrograma(id_programa: Int) {
@@ -198,7 +198,7 @@ public class Programa(
                 }
             }
             if (!bandera) {
-                println("El programa no existe")
+                println("\t---El programa no existe---\t")
             } else {
                 File("src/main/resources/programas.txt").printWriter().use {
                         out -> out.print(archivoAux)

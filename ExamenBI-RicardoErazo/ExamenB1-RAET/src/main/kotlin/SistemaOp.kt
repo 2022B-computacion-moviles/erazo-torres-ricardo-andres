@@ -69,7 +69,6 @@ class SistemaOp (
                     ","
         var contador = 1
         for (item in this.programas_sistema_op!!){
-            print("hola")
             if(contador < sizeArray){
                 data += item.getIdPrograma().toString() + ","
             } else {
@@ -80,9 +79,9 @@ class SistemaOp (
         data += "\n"
         try {
             Files.write(directorio, data.toByteArray(), StandardOpenOption.APPEND)
-            println("Sistema operativo agregado con éxito!")
+            println("\t---Sistema operativo agregado con éxito!---\t")
         } catch (e: IOException) {
-            println("Error al ingresar el elemento")
+            println("\t---Error al ingresar el elemento---\t")
         }
     }
     //compartir objetos
@@ -130,15 +129,15 @@ class SistemaOp (
                 if (arraySalida[0] == id_sistema_op.toString()) {
                     var actualizar = true
                     println(
-                        "ID Sistema operativo: " + arraySalida[0] + "\t\n\t"
-                                + "1. Nombre: " + arraySalida[1] + "\n\t"
-                                + "2. Tipo: " + arraySalida[2] + "\n\t"
-                                + "3. Versión: " + arraySalida[3] + "\n\t"
-                                + "4. Fecha de lanzamiento: " + arraySalida[4]
+                        "- ID Sistema operativo: " + arraySalida[0] + "\t\n\t"
+                                + " 1. Nombre: " + arraySalida[1] + "\n\t"
+                                + " 2. Tipo: " + arraySalida[2] + "\n\t"
+                                + " 3. Versión: " + arraySalida[3] + "\n\t"
+                                + " 4. Fecha de lanzamiento: " + arraySalida[4]
                     )
                     var directorio2 = Paths.get("src/main/resources/programas.txt")
-                    println("\t5. Agregar o eliminar un programa del sistema")
-                    println("\tProgramas que posee")
+                    println("\t 5. Agregar o eliminar un programa del sistema")
+                    println("\t  Programas que posee")
                     Files.lines(directorio2, Charsets.UTF_8).forEach {
                         var arrayProgramas = it.split(",")
                         var id_programa = arrayProgramas[0]
@@ -156,7 +155,7 @@ class SistemaOp (
                     //Escoger los atributos a ser actualizados
                     var arrayCadena = arrayOf<String>("0", "0", "0", "0", "0")
                     do {
-                        println("Escoger el atributo que se desea actualizar")
+                        print("Escoger el atributo que se desea actualizar: ")
                         var atributo = readln().toInt()
                         when (atributo) {
                             (1) -> {
@@ -190,20 +189,20 @@ class SistemaOp (
                                         "\n Elección: ")
                                 var opcionLista = readln().toInt()
                                 if (opcionLista == 1) {
-                                    println("Programas disponibles son:")
+                                    println("- Programas disponibles son:")
                                     Programa.buscarPrograma()
-                                    print("Seleccione los programas que se desea agregar al sistema operativo: ")
+                                    print("Seleccione los programas que se desea agregar al sistema operativo separándolos con comas(,): ")
                                     var nuevosProgramas = readln()
                                     arrayCadena.set(4, actualizarListaProgramas(nuevosProgramas, arraySalida[0].toInt()))
                                 } else {
-                                    print("Seleccione los programas que se desea eliminar del sistema operativo: ")
+                                    print("Seleccione los programas que se desea eliminar del sistema operativo separándolos con comas(,): ")
                                     var listaEliminar = readln()
                                     var auxLista = eliminarDeListaProgramas(listaEliminar, arraySalida[0].toInt())
                                     arrayCadena.set(4, auxLista)
                                 }
                             }
                         }
-                        println("¿Seguir actualizando? \n 1. Si \n 2. No \n")
+                        print("\t---¿Seguir actualizando?---\t \n \t1. Si \t\n 2. No \nElección: ")
                         var auxOpcion = readln().toInt()
                         if (auxOpcion == 2) {
                             actualizar = false //Terminar la actualización del elemento
@@ -236,13 +235,13 @@ class SistemaOp (
                 }
             }
             if (!bandera) {
-                println("El programa no existe")
+                println("\t---El programa no existe---\t")
             } else {
                 File("src/main/resources/sistemasop.txt").printWriter().use {
                         out -> out.print(archivoActualizado)
                 }
             }
-            println("Sistema operativo actualizado")
+            println("\t---Sistema operativo actualizado---\t")
         }
         //función para eliminar (DELETE) al Sistema operativo dentro del archivo
         fun eliminarPrograma(id_programa: Int) {
@@ -254,13 +253,13 @@ class SistemaOp (
                 var arraySalida = it.split(",")
                 if (arraySalida[0] == id_programa.toString()) {
                     bandera = true
-                    println("El sistema operativo fue eliminado con éxito")
+                    println("\t---El sistema operativo fue eliminado con éxito---\t")
                 } else {
                     archivoAux += it + "\n"
                 }
             }
             if (!bandera) {
-                println("El sistema operativo no existe")
+                println("\t---El sistema operativo no existe---\t")
             } else {
                 File("src/main/resources/sistemasop.txt").printWriter().use {
                         out -> out.print(archivoAux)

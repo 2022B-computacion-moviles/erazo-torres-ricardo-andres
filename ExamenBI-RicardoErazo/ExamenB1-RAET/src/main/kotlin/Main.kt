@@ -33,7 +33,7 @@ fun main(args: Array<String>) {
                         "Elección: "
             }
             while (!aux) {
-                println(message)
+                print(message)
                 var escogerCRUD = readln().toInt()
                 when (escogerCRUD) {
                     (1) -> {

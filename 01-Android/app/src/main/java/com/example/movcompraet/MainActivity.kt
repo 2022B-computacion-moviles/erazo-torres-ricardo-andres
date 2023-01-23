@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
             .setOnClickListener {
                 irActividad(BListView::class.java)
             }
+
         val botonIntentImplicito = findViewById<Button>(R.id.btn_ir_intent_implicito)
         botonIntentImplicito
             .setOnClickListener {
@@ -79,6 +80,11 @@ class MainActivity : AppCompatActivity() {
         botonIntent
             .setOnClickListener {
                 abrirActividadConParametros(CIntentExplicitoParametros::class.java)
+            }
+        val botonSqlite = findViewById<Button>(R.id.btn_sqlite)
+        botonSqlite
+            .setOnClickListener {
+                irActividad(ECrudEntrenador::class.java)
             }
     }
 

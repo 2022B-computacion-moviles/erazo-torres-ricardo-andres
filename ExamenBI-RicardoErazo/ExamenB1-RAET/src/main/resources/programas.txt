@@ -1,2 +1,7 @@
 1,Opera,Navegador,20.0,2023-01-21
 2,Teams,Educacion,35.0,2021-01-02
+3,Word,Editor de texto,5.0,2020-12-20
+4,OneNote,Editor de texto,7.0,2020-11-11
+5,Solitario,Juego,3.0,2000-12-03
+6,Zoom,Videoconferencias,6.0,2022-10-21
+7,GitKraken,Herramienta,3.0,2019-03-24
