@@ -26,42 +26,15 @@ class SistemaOp (
     fun setIdSistemaOp(id_sistema_op: Int){
         this.id_sistema_op = id_sistema_op
     }
-    fun setNombreSistemaOp(nombre_sistema_op: String){
-        this.nombre_sistema_op = nombre_sistema_op
-    }
-    fun setFechaLanzamientoSistemaOp(fecha_lanzamiento_sistema_op: Date){
-        this.fecha_lanzamiento_sistema_op = fecha_lanzamiento_sistema_op
-    }
-    fun setTipoSistemaOp(tipo_sistema_op: String){
-        this.tipo_sistema_op = tipo_sistema_op
-    }
-    fun setVersionSistemaOp(version_sistema_op: String){
-        this.version_sistema_op = version_sistema_op
-    }
-
     fun getIdSistemaOp(): Int {
         return id_sistema_op
     }
-    fun getNombreSistemaOp(): String {
-        return nombre_sistema_op
-    }
-    fun getFechaLanzamientoSistemaOp(): Date {
-        return fecha_lanzamiento_sistema_op
-    }
-    fun getTipoSistemaOp(): String {
-        return tipo_sistema_op
-    }
-    fun getVersionSistemaOp(): String {
-        return version_sistema_op
-    }
-
     //función para crear (CREATE) al Sistema operativo dentro del archivo
     fun crearSistemaOp(sizeArray: Int){
         //agregar un nuevo Sistema operativo en el archivo
         var directorio = Paths.get("src/main/resources/sistemasop.txt")
         val formato = SimpleDateFormat("yyyy-MM-dd")
-        var data =
-            this.id_sistema_op.toString() +
+        var data = this.id_sistema_op.toString() +
                     "," + this.nombre_sistema_op +
                     "," + this.tipo_sistema_op +
                     "," + this.version_sistema_op +
@@ -202,7 +175,7 @@ class SistemaOp (
                                 }
                             }
                         }
-                        print("\t---¿Seguir actualizando?---\t \n \t1. Si \t\n 2. No \nElección: ")
+                        print("\t---¿Seguir actualizando?---\t \n \t1. Si \t\n \t2. No \nElección: ")
                         var auxOpcion = readln().toInt()
                         if (auxOpcion == 2) {
                             actualizar = false //Terminar la actualización del elemento

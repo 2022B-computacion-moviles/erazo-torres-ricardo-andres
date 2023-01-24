@@ -25,41 +25,15 @@ public class Programa(
     fun setIdPrograma (id_programa: Int){
         this.id_programa = id_programa
     }
-    fun setNombrePrograma (nombre_programa: String){
-        this.nombre_programa = nombre_programa
-    }
-    fun setTipoPrograma (tipo_programa: String){
-        this.tipo_programa = tipo_programa
-    }
-    fun setPesoPrograma (peso_programa: Float){
-        this.peso_programa = peso_programa
-    }
-    fun setFechaInstalacionPrograma (fecha_instalacion_programa: Date){
-        this.fecha_instalacion_programa = fecha_instalacion_programa
-    }
-
     fun getIdPrograma(): Int{
         return id_programa
-    }
-    fun getNombrePrograma() : String {
-        return nombre_programa
-    }
-    fun getTipoPrograma(): String {
-        return tipo_programa
-    }
-    fun getPesoPrograma(): Float{
-        return peso_programa
-    }
-    fun getFechaInstalacionPrograma(): Date{
-        return fecha_instalacion_programa
     }
     //función para crear (CREATE) al programa dentro del archivo
     fun crearPrograma(){
         //agregar un nuevo programa en el archivo
         var directorio = Paths.get("src/main/resources/programas.txt")
         val formato = SimpleDateFormat("yyyy-MM-dd")
-        var data =
-            this.id_programa.toString() +
+        var data = this.id_programa.toString() +
                     "," + this.nombre_programa +
                     "," + this.tipo_programa +
                     "," + this.peso_programa +
