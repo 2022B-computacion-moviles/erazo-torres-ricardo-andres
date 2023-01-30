@@ -4,4 +4,4 @@
 4,OneNote,Editor de texto,7.0,2020-11-11
 5,Solitario,Juego,3.0,2000-12-03
 6,Zoom,Videoconferencias,6.0,2022-10-21
-7,GitKraken,Herramienta,3.0,2019-03-24
+7,GitKraken,Herramienta,5,2020-03-24
