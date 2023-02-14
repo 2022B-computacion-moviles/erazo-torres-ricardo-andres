@@ -1,20 +1,21 @@
 package com.example.crudtarea
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.crudtarea.R
+import android.view.Menu
+import android.view.MenuItem
 import com.example.crudtarea.db.DbHelper
-import android.database.sqlite.SQLiteDatabase
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
-    var btnCrear: Button? = null
+
     override fun onCreate(saveInstanceState: Bundle?) {
         super.onCreate(saveInstanceState)
         setContentView(R.layout.activity_main)
-        btnCrear = findViewById(R.id.btn_crear)
+        var btnCrear = findViewById<Button>(R.id.btn_crear)
         btnCrear.setOnClickListener(View.OnClickListener {
             val dbHelper = DbHelper(this@MainActivity)
             val db = dbHelper.writableDatabase
@@ -32,5 +33,32 @@ class MainActivity : AppCompatActivity() {
                 ).show()
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = getMenuInflater()
+        inflater.inflate(R.menu.menu_principal,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        var boo = false
+        when(item.itemId){
+            R.id.menu_nuevo -> {
+                boo = true
+                nuevoRegistro(Registro::class.java)
+            }
+            else -> {
+                boo = false
+            }
+        }
+        return boo
+    }
+
+    fun nuevoRegistro (
+        clase: Class<Registro>
+    ) {
+        val intent = Intent(this, clase)
+        startActivity(intent)
     }
 }

@@ -3,13 +3,12 @@ package com.example.crudtarea.db;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-public class Programa extends DbHelper {
+public class DbPrograma extends DbHelper {
     Context context;
-    public Programa(@Nullable Context context) {
+    public DbPrograma(@Nullable Context context) {
         super(context);
         this.context = context;
     }

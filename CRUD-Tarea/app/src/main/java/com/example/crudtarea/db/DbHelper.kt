@@ -5,39 +5,39 @@ import android.database.sqlite.SQLiteOpenHelper
 import com.example.crudtarea.db.DbHelper
 import android.database.sqlite.SQLiteDatabase
 
-class DbHelper(context: Context?) :
-    SQLiteOpenHelper(context, DATABASE_NOMBRE, null, DATABASE_VERSION) {
+open class DbHelper(context: Context?) :SQLiteOpenHelper(
+    context,
+    "Tarea-Crud.db",
+    null,
+    1
+){
     override fun onCreate(sqLiteDatabase: SQLiteDatabase) {
         sqLiteDatabase.execSQL(
-            "CREATE TABLE " + TABLE_PROGRAMA + "(" +
+            "CREATE TABLE SISTEMA_OP(" +
+                    "id_sistema_op INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "nombre_sistema_op TEXT NOT NULL," +
+                    "version_sistema_op FLOAT NOT NULL," +
+                    "tipo_sistema_op TEXT NOT NULL," +
+                    "fecha_lanzamiento TEXT NOT NULL" +
+                    ");"
+        )
+        sqLiteDatabase.execSQL(
+            "CREATE TABLE PROGRAMA(" +
                     "id_programa INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "id_sistema_op INTEGER,"+
                     "nombre_programa TEXT NOT NULL," +
                     "tipo_programa TEXT NOT NULL," +
                     "fecha_instalación TEXT NOT NULL," +
                     "peso_programa FLOAT NOT NULL," +
-                    "FOREIGN KEY (id_sistema_op) REFERENCES " + TABLE_SISTEMA_OP +
-                    "(id_sistemas_op) )"
-        )
-        sqLiteDatabase.execSQL(
-            "CREATE TABLE " + TABLE_SISTEMA_OP + "(" +
-                    "id_sistema_op INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "nombre_sistema_op TEXT NOT NULL," +
-                    "version_programa FLOAT NOT NULL," +
-                    "tipo_sistema_op TEXT NOT NULL," +
-                    "fecha_lanzamiento TEXT NOT NULL)"
+                    "FOREIGN KEY (id_sistema_op) REFERENCES " +
+                    "SISTEMA_OP(id_sistema_op) " +
+                    ");"
         )
     }
 
     override fun onUpgrade(sqLiteDatabase: SQLiteDatabase, i: Int, i1: Int) {
-        sqLiteDatabase.execSQL("DROP TABLE " + TABLE_PROGRAMA)
-        sqLiteDatabase.execSQL("DROP TABLE " + TABLE_SISTEMA_OP)
+        sqLiteDatabase.execSQL("DROP TABLE PROGRAMA")
+        sqLiteDatabase.execSQL("DROP TABLE SISTEMA_OP")
         onCreate(sqLiteDatabase)
-    }
-
-    companion object {
-        private const val DATABASE_VERSION = 1
-        private const val DATABASE_NOMBRE = "tareaCrud.db"
-        private const val TABLE_PROGRAMA = "PROGRAMA"
-        private const val TABLE_SISTEMA_OP = "SISTEMA_OP"
     }
 }
