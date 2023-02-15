@@ -23,7 +23,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/nombre_sistema_op"
+                android:id="@+id/tvnombre_sistema_op"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -31,7 +31,7 @@
                 android:hint="Nombre del Sistema Op" />
 
             <TextView
-                android:id="@+id/tipo_sistema_op"
+                android:id="@+id/tvtipo_sistema_op"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -39,7 +39,7 @@
                 android:hint="Tipo del Sistema Op" />
 
             <TextView
-                android:id="@+id/fecha_lanzamiento_sistema_op"
+                android:id="@+id/tvfecha_lanzamiento_sistema_op"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -47,7 +47,7 @@
                 android:hint="Fecha de lanzamiento" />
 
             <TextView
-                android:id="@+id/version_sistema_op"
+                android:id="@+id/tvversion_sistema_op"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
