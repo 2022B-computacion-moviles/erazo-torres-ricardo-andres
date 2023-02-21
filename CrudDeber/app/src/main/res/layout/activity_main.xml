@@ -82,6 +82,7 @@
         android:textColor="#D11414"
         android:textSize="15sp"
         android:textStyle="normal|bold" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSistemasOp"
         android:layout_width="match_parent"
