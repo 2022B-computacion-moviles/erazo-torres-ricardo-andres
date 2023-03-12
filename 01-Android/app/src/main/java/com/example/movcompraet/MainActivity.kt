@@ -1,18 +1,21 @@
 package com.example.movcompraet
 
-import android.annotation.SuppressLint
+
 import android.app.Activity
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
+import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.movcompraet.JFirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
     val contenidoIntentExplicito =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
             if (result.resultCode == Activity.RESULT_OK){
@@ -101,6 +104,11 @@ class MainActivity : AppCompatActivity() {
         val botonFAuth = findViewById<Button>(R.id.btn_intent_firebase_ui)
         botonFAuth.setOnClickListener{
             irActividad(IFirebaseUIAuth::class.java)
+        }
+
+        val botonFirestore = findViewById<Button>(R.id.btn_intent_firestore)
+        botonFirestore.setOnClickListener{
+            irActividad(JFirebaseFirestore::class.java)
         }
     }
 
